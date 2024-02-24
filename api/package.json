@@ -1,9 +1,9 @@
 {
   "name": "itesm-ti3005b-wallaby-horarios-api",
-  "module": "index.ts",
+  "module": "src/index.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun run --watch index.ts",
+    "dev": "bun run --watch src/index.ts",
     "dev:worker": "wrangler dev",
     "deploy": "wrangler deploy --minify"
   },
