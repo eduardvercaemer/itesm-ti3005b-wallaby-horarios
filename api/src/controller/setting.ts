@@ -1,5 +1,5 @@
-import { Code } from "../util.ts";
 import { app } from "../app.ts";
+import { Code } from "../lib/code.ts";
 
 app.get("/setting", async (c) => {
   return c.d1
@@ -29,6 +29,7 @@ app.put("/setting/:name/:value", async (c) => {
     )
     .bind(c.params.name!, c.params.value!)
     .run();
+
   return Code.OK;
 });
 
@@ -41,5 +42,6 @@ app.delete("/setting/:name", async (c) => {
     )
     .bind(c.params.name!)
     .run();
+
   return Code.OK;
 });

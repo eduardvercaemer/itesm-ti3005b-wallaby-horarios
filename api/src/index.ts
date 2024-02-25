@@ -4,6 +4,7 @@ import { app } from "./app.ts";
 
 import "./controller/setting.ts";
 import "./controller/schedule.ts";
+import "./controller/not-found.ts";
 
 // noinspection JSUnusedGlobalSymbols
 export default {

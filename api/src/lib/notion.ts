@@ -1,12 +1,41 @@
 import { Core } from "../core.ts";
-import { getClassDatabaseId } from "./database.ts";
 import { datePlus } from "itty-time";
 import { z } from "zod";
 import { NotionError } from "../errors/notion-error.ts";
 
-export async function queryClassForRange(c: Core, date: Date) {
-  const databaseId = await getClassDatabaseId(c);
+export async function retrieveUserInformation(c: Core, userId: string) {
+  const response = await c.notion.users.retrieve({ user_id: userId });
+  console.debug(response);
 
+  const parsed = await z
+    .object({
+      object: z.literal("user"),
+      type: z.literal("person"),
+      id: z.string().uuid(),
+      name: z.string(),
+      avatar_url: z.string().url(),
+      person: z.object({ email: z.string().email() }),
+    })
+    .transform((u) => ({
+      id: u.id,
+      name: u.name,
+      email: u.person.email,
+      avatar: u.avatar_url,
+    }))
+    .safeParseAsync(response);
+
+  if (parsed.success) {
+    return parsed.data;
+  }
+
+  throw new NotionError(parsed.error.message, { cause: parsed.error });
+}
+
+export async function queryClassForRange(
+  c: Core,
+  databaseId: string,
+  date: Date,
+) {
   const response = await c.notion.databases.query({
     database_id: databaseId,
     filter: {
@@ -24,8 +53,6 @@ export async function queryClassForRange(c: Core, date: Date) {
       ],
     },
   });
-
-  console.debug(JSON.stringify(response, null, 2));
 
   const parsed = await z
     .object({
@@ -63,6 +90,7 @@ export async function queryClassForRange(c: Core, date: Date) {
     })
     .transform((response) => response.results)
     .safeParseAsync(response);
+
   if (parsed.success) {
     return parsed.data;
   }
