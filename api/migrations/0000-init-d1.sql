@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS foo;
-CREATE TABLE foo
+DROP TABLE IF EXISTS setting;
+CREATE TABLE setting
 (
-    id   serial NOT NULL,
-    name text,
-    CONSTRAINT foo_pkey PRIMARY KEY (id)
+    name  text NOT NULL,
+    value text,
+    CONSTRAINT setting_pkey PRIMARY KEY (name)
 );
