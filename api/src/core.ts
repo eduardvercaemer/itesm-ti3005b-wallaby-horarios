@@ -1,4 +1,5 @@
 import { json } from "itty-router";
+import { Client as NotionClient } from "@notionhq/client";
 
 import { Env } from "./env.ts";
 
@@ -11,6 +12,7 @@ export class Core {
   public readonly route!: string;
   public readonly params!: Record<string, string | undefined>;
   public readonly query!: Record<string, string[] | string | undefined>;
+  public readonly notion: NotionClient;
 
   constructor(
     public readonly request: Request,
@@ -23,6 +25,8 @@ export class Core {
 
     this.method = this.request.method;
     this.url = this.request.url;
+
+    this.notion = new NotionClient({ auth: this.env.NOTION_KEY });
   }
 
   then(response: unknown): Response {
@@ -34,7 +38,5 @@ export class Core {
     return new Response(null, { status: 500 });
   }
 
-  finally() {
-    console.debug(this);
-  }
+  finally() {}
 }

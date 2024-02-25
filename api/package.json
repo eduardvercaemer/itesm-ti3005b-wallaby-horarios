@@ -17,6 +17,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.14",
     "itty-router": "^4.0.27"
   }
 }

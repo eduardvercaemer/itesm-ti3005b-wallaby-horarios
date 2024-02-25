@@ -1,1 +1,3 @@
-export interface Env {}
+export interface Env {
+  NOTION_KEY: string;
+}
