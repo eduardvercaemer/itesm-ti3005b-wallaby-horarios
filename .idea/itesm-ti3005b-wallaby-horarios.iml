@@ -7,6 +7,10 @@
       <excludeFolder url="file://$MODULE_DIR$/api/.wrangler" />
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/web-app/.wrangler" />
+      <excludeFolder url="file://$MODULE_DIR$/web-app/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/web-app/server" />
+      <excludeFolder url="file://$MODULE_DIR$/web-app/tmp" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

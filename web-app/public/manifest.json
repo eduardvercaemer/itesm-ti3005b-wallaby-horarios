@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "wallaby-webapp",
+  "short_name": "wallaby helper app",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "Wallaby Basic Helper App"
+}
