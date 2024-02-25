@@ -27,7 +27,7 @@ const LOW_LEVEL = {
         type: z.literal("person"),
         id: z.string().uuid(),
         name: z.string(),
-        avatar_url: z.string().url(),
+        avatar_url: z.string().url().nullable(),
         person: z.object({ email: z.string().email() }),
       })
       .transform((u) => ({
