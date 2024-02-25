@@ -72,6 +72,11 @@ const LOW_LEVEL = {
               id: z.string().uuid(),
               url: z.string().url(),
               properties: z.object({
+                Name: z.object({
+                  id: z.literal("title"),
+                  type: z.literal("title"),
+                  title: z.array(z.any({})).transform((a) => a[0].plain_text),
+                }),
                 Date: z.object({
                   type: z.literal("date"),
                   date: z.object({
@@ -92,6 +97,7 @@ const LOW_LEVEL = {
             })
             .transform((o) => ({
               id: o.id,
+              title: o.properties.Name.title,
               url: o.url,
               date: o.properties.Date.date,
               employees: o.properties.Employee.people.map((p) => p.id),
