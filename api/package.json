@@ -19,6 +19,7 @@
   "dependencies": {
     "@notionhq/client": "^2.2.14",
     "itty-router": "^4.0.27",
-    "itty-time": "^0.2.2"
+    "itty-time": "^0.2.2",
+    "zod": "^3.22.4"
   }
 }
