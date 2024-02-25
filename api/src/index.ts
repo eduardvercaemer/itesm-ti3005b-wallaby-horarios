@@ -3,6 +3,7 @@ import { Env } from "./env.ts";
 import { app } from "./app.ts";
 
 import "./controller/setting.ts";
+import "./controller/schedule.ts";
 
 // noinspection JSUnusedGlobalSymbols
 export default {
