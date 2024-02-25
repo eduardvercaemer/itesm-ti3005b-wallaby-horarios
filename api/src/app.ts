@@ -3,8 +3,4 @@ import { Core } from "./core.ts";
 
 export const app = Router<Core>();
 
-app.all("*", (c) => {
-  console.debug(c.notion);
-});
-
-app.get("*", () => "OK");
+app.get("*", (c) => c.d1.prepare("SELECT COUNT(*) AS COUNT FROM foo").first());

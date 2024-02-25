@@ -1,3 +1,11 @@
 name = "itesm-ti3005b-wallaby-horarios-api"
 main = "src/index.ts"
 compatibility_date  = "2024-02-24"
+
+[[d1_databases]]
+binding = "D1"
+database_name = "itesm-ti3005b-wallaby-horarios-prod"
+database_id = "ebd082b9-63bb-49ef-9643-363a91370f65"
+preview_database_id = "D1"
+migrations_table = "migrations"
+migrations_dir = "migrations"

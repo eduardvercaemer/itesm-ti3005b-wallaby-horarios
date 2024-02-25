@@ -13,6 +13,7 @@ export class Core {
   public readonly params!: Record<string, string | undefined>;
   public readonly query!: Record<string, string[] | string | undefined>;
   public readonly notion: NotionClient;
+  public readonly d1: D1Database;
 
   constructor(
     public readonly request: Request,
@@ -27,6 +28,8 @@ export class Core {
     this.url = this.request.url;
 
     this.notion = new NotionClient({ auth: this.env.NOTION_KEY });
+
+    this.d1 = this.env.D1;
   }
 
   then(response: unknown): Response {
