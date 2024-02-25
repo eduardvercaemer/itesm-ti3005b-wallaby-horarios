@@ -1,6 +1,7 @@
 name = "itesm-ti3005b-wallaby-horarios-api"
 main = "src/index.ts"
 compatibility_date  = "2024-02-24"
+workers_dev = false
 
 [[d1_databases]]
 binding = "D1"
