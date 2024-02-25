@@ -55,8 +55,8 @@ export async function getNotionUserById(c: Core, userId: string) {
 export async function upsertNotionUserById(
   c: Core,
   userId: string,
-  user: Partial<NotionUser>,
-) {
+  user: NotionUser,
+): Promise<NotionUser> {
   // TODO(XXX): handle id conflict
   await c.d1
     .prepare(
@@ -66,4 +66,6 @@ export async function upsertNotionUserById(
     )
     .bind(userId, user.email, user.name, user.avatar)
     .run();
+
+  return user;
 }

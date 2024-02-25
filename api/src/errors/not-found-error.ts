@@ -1,6 +1,7 @@
 import { Resource } from "../lib/resource.ts";
 
 export class NotFoundError extends Error {
+  public readonly resource: Resource;
   constructor(
     resource: Resource,
     meta?: Record<string, any>,
@@ -11,5 +12,6 @@ export class NotFoundError extends Error {
       options,
     );
     this.name = NotFoundError.name;
+    this.resource = resource;
   }
 }
