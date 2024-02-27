@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Standalone App" pattern="!file[itesm-ti3005b-wallaby-horarios]:*/||file[itesm-ti3005b-wallaby-horarios]:standalone-web-app//*" />
+</component>
