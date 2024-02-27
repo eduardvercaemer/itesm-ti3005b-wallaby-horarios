@@ -1,5 +1,6 @@
 import { component$, Slot } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
+import { Navbar } from "~/components/navigation/navbar";
 
 // noinspection JSUnusedGlobalSymbols
 export const onGet: RequestHandler = async ({ cacheControl }) => {
@@ -11,6 +12,7 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 export default component$(() => {
   return (
     <>
+      <Navbar />
       <main>
         <Slot />
       </main>
