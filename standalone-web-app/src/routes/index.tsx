@@ -83,7 +83,7 @@ export default component$(() => {
                     <div class="flex items-center gap-3">
                       <div class="avatar">
                         <div class="mask mask-squircle w-12 h-12">
-                          <img src={e.avatar} alt="Avatar"/>
+                          <img src={e.avatar ?? ''} alt="Avatar"/>
                         </div>
                       </div>
                       <div>
