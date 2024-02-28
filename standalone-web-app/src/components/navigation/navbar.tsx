@@ -1,7 +1,9 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useContext } from "@builder.io/qwik";
 import { Datepicker } from "~/components/datepicker/datepicker";
+import { DateContext } from "~/context/date.context";
 
 export const Navbar = component$(() => {
+  const date = useContext(DateContext);
   return (
     <div class="navbar bg-primary text-primary-content">
       <div class="navbar-start">
@@ -42,7 +44,12 @@ export const Navbar = component$(() => {
         <a class="btn btn-ghost text-xl">Wallaby</a>
       </div>
       <div class="navbar-end">
-        <Datepicker placeholder="Date" onChange$={(date: Date) => console.debug(date)} />
+        <Datepicker
+          placeholder="Date"
+          onChange$={(newDate: Date) => {
+            date.value = newDate;
+          }}
+        />
         <button class="btn btn-circle btn-ghost">
           <div class="indicator">
             <svg
